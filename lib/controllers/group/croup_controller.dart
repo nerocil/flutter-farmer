@@ -33,7 +33,7 @@ class GroupController extends GetxController with AppMixin{
 
     }
 
-    printDebug(message:response.data.toString());
+    // printDebug(message:response.data.toString());
 
 
     loading.value = false;

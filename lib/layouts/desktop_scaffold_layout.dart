@@ -18,7 +18,7 @@ final asideController = Get.find<AsideBarController>();
           AsideBar(),
           Expanded(
             flex: 2,
-            child: PageNavigator(isDesktop: false),
+            child: PageNavigator(isDesktop: true),
           )
         ],
       ),

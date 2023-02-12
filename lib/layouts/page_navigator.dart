@@ -1,5 +1,6 @@
 import 'package:farmer_group_management/components/group_table.dart';
 import 'package:farmer_group_management/controllers/aside_bar/aside_bar_controller.dart';
+import 'package:farmer_group_management/pages/dashboard/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class PageNavigator extends StatelessWidget {
               return IndexedStack(
                 index: asideController.activeMenu.value,
                 children: [
-                  Center(child: Text("Dashboard"),),
+                  DashboardPage(),
                   GroupsTable(isDesktop: isDesktop,),
                   Center(child: Text("Profile"),),
                 ],

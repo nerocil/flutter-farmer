@@ -9,13 +9,10 @@ class TabletScaffoldLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Group Manage"),
+        title: const Text("Group Manage"),
       ),
         drawer: AsideBar(),
-      body:  Expanded(
-        flex: 2,
-        child: PageNavigator(isDesktop: false),
-      )
+      body:  PageNavigator(isDesktop: false),
     );
   }
 }

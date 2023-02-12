@@ -15,10 +15,7 @@ class MobileScaffoldLayout extends StatelessWidget {
             title: const Text("Group Manage"),
           ),
           drawer: AsideBar(),
-          body:  Expanded(
-            flex: 2,
-            child: PageNavigator(isDesktop: true),
-          )
+          body: PageNavigator(isDesktop: false),
       ),
     );
   }
