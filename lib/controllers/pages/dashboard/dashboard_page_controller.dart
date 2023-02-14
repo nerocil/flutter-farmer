@@ -6,7 +6,7 @@ import 'package:farmer_group_management/services/app_http_service.dart';
 import 'package:farmer_group_management/services/app_mixin.dart';
 import 'package:get/get.dart';
 
-class DashboardController extends GetxController with AppMixin {
+class DashboardPageController extends GetxController with AppMixin {
   final loading = false.obs;
   final dashboard = Dashboard().obs;
   final selectedRegion = "Arusha".obs;

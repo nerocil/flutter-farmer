@@ -1,15 +1,16 @@
 import 'package:farmer_group_management/components/active_status.dart';
-import 'package:farmer_group_management/controllers/group/croup_controller.dart';
+import 'package:farmer_group_management/controllers/pages/group/croup_controller.dart';
+import 'package:farmer_group_management/controllers/pages/home/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
-class GroupsTable extends StatelessWidget {
-  final bool isDesktop;
+class GroupsTable extends GetView<GroupController> {
 
-  GroupsTable({Key? key, required this.isDesktop}) : super(key: key);
 
-  final controller = Get.find<GroupController>();
+  GroupsTable({Key? key, }) : super(key: key);
+
+  final homeController = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class GroupsTable extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 0),
                       child: Row(
                         children: [
-                          isDesktop
+                          homeController.layoutState.value == LayoutState.desktop
                               ? SizedBox(
                                   width: 200,
                                   height: 40,
@@ -51,7 +52,7 @@ class GroupsTable extends StatelessWidget {
                                   ),
                                 )
                               : const SizedBox(),
-                          SizedBox(width: isDesktop ? 20 : 0),
+                          SizedBox(width: homeController.layoutState.value == LayoutState.desktop ? 20 : 0),
                           OutlinedButton.icon(
                             onPressed: () {},
                             icon: const Icon(

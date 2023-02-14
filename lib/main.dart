@@ -1,20 +1,21 @@
 
 import 'package:farmer_group_management/controllers/aside_bar/aside_bar_controller.dart';
-import 'package:farmer_group_management/controllers/dashboard/dashaboard_controller.dart';
-import 'package:farmer_group_management/controllers/group/croup_controller.dart';
-import 'package:farmer_group_management/layouts/app_layout.dart';
-import 'package:farmer_group_management/layouts/desktop_scaffold_layout.dart';
-import 'package:farmer_group_management/layouts/mobile_scaffold_layout.dart';
-import 'package:farmer_group_management/layouts/tablet_scaffold_layout.dart';
+import 'package:farmer_group_management/controllers/auth_controller.dart';
+import 'package:farmer_group_management/database/storage.dart';
+import 'package:farmer_group_management/routes/routes.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'controllers/pages/home/home_controller.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(DashboardController());
+  await Get.put(BoxStorage()).initStorage();
+  Get.put(AuthController());
+  Get.put(HomeController());
   Get.put(AsideBarController());
-  Get.put(GroupController());
+
   runApp(const MyApp());
 }
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Group Management',
       debugShowCheckedModeBanner: false,
       // This theme was made for FlexColorScheme version 6.1.1. Make sure
@@ -109,11 +110,15 @@ class MyApp extends StatelessWidget {
 // to let the device system mode control the theme mode:
 // themeMode: ThemeMode.system,
 
-      home: AppLayout(
-        mobileScaffoldLayout: MobileScaffoldLayout(),
-        tabletScaffoldLayout: TabletScaffoldLayout(),
-        desktopScaffoldLayout: DesktopScaffoldLayout(),
-      ),
+      //unknownRoute: GetPage(name: '/notfound', page: () => UnknownRoutePage()),
+      initialRoute: RouteClass.getHomeRoute(),
+      getPages: RouteClass.routes,
+
+      // home: AppLayout(
+      //   mobileScaffoldLayout: MobileScaffoldLayout(),
+      //   tabletScaffoldLayout: TabletScaffoldLayout(),
+      //   desktopScaffoldLayout: DesktopScaffoldLayout(),
+      // ),
     );
   }
 }

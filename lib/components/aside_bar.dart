@@ -1,5 +1,5 @@
 import 'package:farmer_group_management/components/aside_menu_item.dart';
-import 'package:farmer_group_management/components/naviagation_menu.dart';
+import 'package:farmer_group_management/components/navigation_menu.dart';
 import 'package:flutter/material.dart';
 
 class AsideBar extends StatelessWidget {

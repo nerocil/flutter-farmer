@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:farmer_group_management/components/counter_card.dart';
 import 'package:farmer_group_management/components/dashboard_card.dart';
-import 'package:farmer_group_management/controllers/dashboard/dashaboard_controller.dart';
+import 'package:farmer_group_management/controllers/pages/dashboard/dashboard_page_controller.dart';
 import 'package:farmer_group_management/models/dashbaord.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -12,7 +12,7 @@ import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 
 
-class DashboardPage extends GetView<DashboardController> {
+class DashboardPage extends GetView<DashboardPageController> {
   const DashboardPage({Key? key}) : super(key: key);
 
 
@@ -122,7 +122,7 @@ class DashboardPage extends GetView<DashboardController> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   CounterCard(
-                                    title: "Total Farms",
+                                    title: "Total Farms Size",
                                     total: dashboard.totalFarmSize.toString(),
                                   ),
                                   CounterCard(
