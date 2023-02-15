@@ -1,4 +1,4 @@
-# farmer_group_management
+# Flutter farmer management
 
 A new Flutter project.
 
