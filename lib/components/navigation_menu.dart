@@ -19,6 +19,6 @@ class NavigationMenu{
     NavigationMenu(name: "Dashboard", icon: FeatherIcons.monitor,page: const DashboardPage()),
     NavigationMenu(name: "Cultivation Details", icon: FeatherIcons.list,page:const CultivationPage()),
     NavigationMenu(name: "Groups", icon: FeatherIcons.users,page: GroupsTable()),
-    NavigationMenu(name: "Profile", icon: FeatherIcons.user,page: const ProfilePage()),
+    NavigationMenu(name: "Profile", icon: FeatherIcons.user,page: ProfilePage()),
   ];
 }

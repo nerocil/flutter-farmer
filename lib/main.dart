@@ -1,6 +1,7 @@
 
 import 'package:farmer_group_management/controllers/aside_bar/aside_bar_controller.dart';
 import 'package:farmer_group_management/controllers/auth_controller.dart';
+import 'package:farmer_group_management/controllers/pages/login/login_controller.dart';
 import 'package:farmer_group_management/database/storage.dart';
 import 'package:farmer_group_management/routes/routes.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
@@ -15,6 +16,7 @@ void main() async {
   Get.put(AuthController());
   Get.put(HomeController());
   Get.put(AsideBarController());
+  Get.put(LoginController());
 
   runApp(const MyApp());
 }

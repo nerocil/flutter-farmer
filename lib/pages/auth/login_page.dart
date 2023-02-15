@@ -1,6 +1,8 @@
+import 'package:farmer_group_management/controllers/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends GetView<LoginController> {
   LoginPage({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
 
@@ -20,35 +22,66 @@ class LoginPage extends StatelessWidget {
                   const ListTile(
                     title: Text("Sign-In"),
                     subtitle:
-                    Text("Access the Panel using your email and passcode."),
+                        Text("Access the Panel using your email and passcode."),
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
-                    initialValue: "",
+                    initialValue: controller.userName.value,
                     decoration: const InputDecoration(
                         isDense: true,
                         hintText: "Email or Username",
                         labelText: "Email or Username"),
-                    validator: (value) {},
-                    onSaved: (value) {},
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please enter email";
+                      }
+                      if (!value.trim().isEmail) {
+                        return "Please enter valid Email";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      controller.userName.value = value??"";
+                    },
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
-                    initialValue: "",
+                    initialValue:controller.passcode.value,
                     obscureText: true,
                     decoration: const InputDecoration(
                         isDense: true,
                         hintText: "Password",
                         labelText: "Password"),
-                    validator: (value) {},
-                    onSaved: (value) {},
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please enter Password";
+                      }
+                      if (value.trim().isEmpty) {
+                        return "Password is required";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      controller.passcode.value = value??"";
+                    },
                   ),
                   const SizedBox(height: 20),
                   SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: ElevatedButton(
-                          onPressed: () {}, child: const Text("Sign In")))
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: controller.loading.value ? null:() {
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          controller.onAttemptLogin();
+                        }
+                      },
+                      child: controller.loading.value ? const Padding(
+                        padding: EdgeInsets.all(6.0,),
+                        child: CircularProgressIndicator(color: Colors.white,),
+                      ):const Text("Sign In"),
+                    ),
+                  )
                 ],
               ),
             ),

@@ -1,14 +1,15 @@
 import 'package:dio/dio.dart';
+import 'package:farmer_group_management/database/storage.dart';
+import 'package:get/get.dart';
 
 class AppHttpService{
 
-  // static const String baseUrl = "http://155.12.53.227/api/v1/";
-  // static const String imageUrl = "http://155.12.53.227/api/v1";
-  static const String imageUrl = "http://127.0.0.1:8000/";
-  static const String baseUrl = "http://127.0.0.1:8000/api/";
+  static const String imageUrl = "https://farmer-api.wiampro.co.tz/";
+  static const String baseUrl = "https://farmer-api.wiampro.co.tz/v1/";
 
   static BaseOptions dioOption({String? url}) {
-    final token = null;
+    final database = Get.find<BoxStorage>();
+    final token = database.getUser().token;
     BaseOptions options = BaseOptions(
       baseUrl: url??baseUrl,
       receiveDataWhenStatusError: true,

@@ -11,7 +11,7 @@ class AuthMiddleware extends GetMiddleware{
     if(authController.user.value.token == null){
       return RouteSettings(name: RouteClass.login);
     }
-    return RouteSettings(name: RouteClass.home);
+    return null;
   }
 
 // @override
