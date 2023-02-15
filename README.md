@@ -7,7 +7,7 @@ A new Flutter project.
 This project is a starting point for a Flutter application.
 
 ## LIVE DEMO
-- [DEMO SITE](https://docs.flutter.dev/get-started/codelab)
+- [DEMO SITE](https://farmer.wiampro.co.tz)
 - User name > admin@mail.com
 - User password > password
 
